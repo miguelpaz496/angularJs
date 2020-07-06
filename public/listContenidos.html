@@ -1,0 +1,24 @@
+<div flex ng-controller="contrlA">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <div layout="column" layout-align="center center" flex ng-repeat="categoria in categoriasList">
+                    <md-tab label="{{categoria.name}}">
+                        <md-content class="md-padding" layout="row" layout-wrap>
+                            <div flex-xs flex-gt-xs="30" layout="row" ng-repeat="contenido in categoria.contenidos">
+                                <md-card>
+                                    <img ng-src="img/{{contenido.imagen}}" class="md-card-image" alt="Washed Out">
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">{{contenido.titulo}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                </md-card>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                </div>
+            </md-tabs>
+        </md-content>
+    </div>
+</div>

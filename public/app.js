@@ -29,7 +29,7 @@ RoutesConfig.$inject = ['$stateProvider','$urlRouterProvider'];
 
 function RoutesConfig($stateProvider,$urlRouterProvider){
 
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/contenidos')
 
     var helloState = {
       name: 'hello',
@@ -38,7 +38,7 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
   
     var aboutState = {
       name: 'about',
-      url: '/list',
+      url: '/contenidos',
       templateUrl: 'listContenidos.html',
     }
   

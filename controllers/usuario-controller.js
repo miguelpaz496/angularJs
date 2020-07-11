@@ -11,11 +11,11 @@ var BCRYPT_SALT_ROUNDS = 10;
 exports.create = (req, res) => {
 
     console.log(req.body)
-    let {nombre, correo, contrasena} = req.body;
+    let {nombre, correo, contrasena, contrasena2} = req.body;
     // Validate request
-    if (!nombre) {
+    if (!nombre && (contrasena === contrasena2)) {
         res.status(400).send({
-        message: "Content can not be empty!"
+        message: "Error con el registro"
         });
         return;
     }
@@ -64,7 +64,7 @@ exports.findByEmail = (req, res) => {
                 return res.status(403).send({mensaje: "no hay registro3"});
             }
             if(!samePassword){
-                res.status(200).send({mensaje: "no hay registro4"});
+                res.status(403).send({mensaje: "no hay registro4"});
             }
 
             const token = jwt.sign({
@@ -77,7 +77,11 @@ exports.findByEmail = (req, res) => {
             });
             res.status(200).send({
                 mensaje: "login exitoso",
-                token: token
+                token: token,
+                usuario:{
+                    correo: data[0].correo,
+                    usuarioId: data[0].id
+                }
             });
 
         });

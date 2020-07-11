@@ -2,31 +2,48 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/scripts/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/app.css">
 </head>
 
-<body ng-app="MyApp" layout="column">
-    <md-toolbar>
+<body ng-app="MyApp" layout="column" ng-controller="principal">
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="toggleMenu()" hide-gt-sm> 
+            <md-icon md-svg-src="img/icons/menu-white.svg"></md-icon>
+        </md-button>
         <h1 class="md-toolbar-tools">index</h1>
     </md-toolbar>
     <div class="container" layout="row" flex>
-        <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-            <md-list>
-
-                <md-list-item>
-                    <md-button ui-sref="hello">
-                        <md-icon></md-icon>
-                        inicio
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="menuList">
+            <md-list ng-click="toggleMenu()">
+                <md-list-item >
+                    <md-button class="boton-menu" ui-sref="login">
+                        <md-icon md-svg-src="img/icons/favorite.svg"> </md-icon>
+                        Login
                     </md-button>
-                    </md-list-item>
-                    <md-list-item>
-                    <md-button ui-sref="about">
-                        <md-icon></md-icon>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="boton-menu" ui-sref="registro">
+                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
+                        registro
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="boton-menu" ui-sref="about">
+                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
                         lista
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="boton-menu" ui-sref="formulario">
+                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
+                        nuevo contenido
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -46,6 +63,8 @@
     <script src="/scripts/angular-material/angular-material.min.js"></script>
     <script src="/app.js"></script>
     <script src="controllers/controller.js"></script>
+    <script src="services/multipartForm.js"></script>
+    <script src="directives/fileModel.js"></script>
 </body>
 
 </html>

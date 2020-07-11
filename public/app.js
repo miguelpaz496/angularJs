@@ -1,26 +1,5 @@
-
 var myApp = angular.module('MyApp', ['ngMaterial', 'ui.router']);
 
-/**
- * 
- * myApp.config(function($stateProvider) {
-
-  var helloState = {
-    name: 'hello',
-    url: '/api',
-  }
-
-  var aboutState = {
-    name: 'about',
-    url: '/about',
-  }
-
-  $stateProvider.state(helloState);
-  $stateProvider.state(aboutState);
-});
- * 
- * 
- */
 
 myApp.config(RoutesConfig);
 
@@ -29,11 +8,18 @@ RoutesConfig.$inject = ['$stateProvider','$urlRouterProvider'];
 
 function RoutesConfig($stateProvider,$urlRouterProvider){
 
-    $urlRouterProvider.otherwise('/contenidos')
+    $urlRouterProvider.otherwise('/')
 
-    var helloState = {
-      name: 'hello',
+    var loginState = {
+      name: 'login',
       url: '/',
+      templateUrl: 'login.html',
+    }
+
+    var registerState = {
+      name: 'registro',
+      url: '/registro/',
+      templateUrl: 'register.html',
     }
   
     var aboutState = {
@@ -41,9 +27,27 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
       url: '/contenidos',
       templateUrl: 'listContenidos.html',
     }
+
+    var formState = {
+      name: 'formulario',
+      url: '/fomulario/',
+      templateUrl: 'formulario.html',
+    }
+
+    var datailsState = {
+      name: 'detalles',
+      url: '/contenidos/:id',
+      templateUrl: 'detalles.html',
+      controller: function($scope, $stateParams) {
+        $scope.numero = $stateParams.id;
+      }
+    }
   
-    $stateProvider.state(helloState);
+    $stateProvider.state(loginState);
+    $stateProvider.state(registerState);
     $stateProvider.state(aboutState);
+    $stateProvider.state(formState);
+    $stateProvider.state(datailsState);
 
 }
 

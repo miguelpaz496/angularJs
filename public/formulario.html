@@ -1,0 +1,52 @@
+<div flex ng-controller="form_contenido" layout="column" ng-cloak class="md-inline-form">
+    <md-content layout-padding>
+        <div>
+            <form name="contenidoForm">
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Titulo</label>
+                      <input ng-model="contenido.titulo">
+                    </md-input-container>
+          
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Enlace</label>
+                        <input ng-model="contenido.enlace">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Etiquetas</label>
+                        <input ng-model="contenido.etiqueta">
+                    </md-input-container>
+          
+                    <md-input-container>
+                      <label>Fecha Limite</label>
+                      <md-datepicker ng-model="contenido.fecha_limite" aria-label="Enter date"></md-datepicker>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input aria-label="seleccione" id="fileInput" type="file" file-model="contenido.imagen">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Contenido</label>
+                        <input ng-model="contenido.contenido">
+                    </md-input-container>
+          
+
+                        <md-select ng-model="contenido.categoria_id" placeholder="Weapon" class="md-no-underline">
+                          <md-option value="1">Mamtematicas</md-option>
+                          <md-option value="2">Lenguaje</md-option>
+                        </md-select>
+
+                </div>
+                <div>
+                    <md-button type="submit" ng-click="nuevoContenido()">Submit</md-button>
+                </div>
+                
+            </form>
+        </div>
+    </md-content>
+</div>

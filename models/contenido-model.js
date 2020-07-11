@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     categoria_id: {
         type: Sequelize.INTEGER
-    },
+    }
     });
   
     return Contenido;

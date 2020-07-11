@@ -1,0 +1,18 @@
+
+
+.boton-menu {
+    width: 100%;
+    text-align: left !important;
+}
+
+#content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+
+
+.img-contenido {
+    width: 250px;
+    height: 150px;
+} 

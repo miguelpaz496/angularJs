@@ -15,23 +15,5 @@ module.exports = app => {
     router.get("/:id", contenidos.findOne);
 
 
-
-    /** 
-     * 
-  
-    // encontrar un contenido por id
-    // buscar un usuario por el correo
-    router.post("/login", usuarios.findByEmail);
-    router.get("/:id", tutorials.findOne);
-  
-    // actualizar un contenido por id
-    router.put("/:id", tutorials.update);
-  
-    // eliminar un contenido por id
-    router.delete("/:id", tutorials.delete);
-
-
-    */
-  
     app.use('/contenidos', router);
   };

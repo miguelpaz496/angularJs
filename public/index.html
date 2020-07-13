@@ -14,35 +14,38 @@
 
 <body ng-app="MyApp" layout="column" ng-controller="principal">
     <md-toolbar layout="row">
-        <md-button class="menu" ng-click="toggleMenu()" hide-gt-sm> 
+        <md-button class="menu" aria-label="seleccione" ng-click="toggleMenu()" hide-gt-sm> 
             <md-icon md-svg-src="img/icons/menu-white.svg"></md-icon>
         </md-button>
-        <h1 class="md-toolbar-tools">index</h1>
+        <h1 class="md-toolbar-tools my-color-toolbar">App Contenidos</h1>
+        <div ng-if="button_log" layout="row" layout-align="center center">
+            <md-button class="my-button-toolbar md-raised " ng-click="logout()">log out</md-button>
+        </div>
     </md-toolbar>
     <div class="container" layout="row" flex>
-        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="menuList">
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp list" md-component-id="menuList">
             <md-list ng-click="toggleMenu()">
-                <md-list-item >
+                <md-list-item ng-if="!button_log" >
                     <md-button class="boton-menu" ui-sref="login">
-                        <md-icon md-svg-src="img/icons/favorite.svg"> </md-icon>
+                        <md-icon md-svg-src="img/icons/login-24px.svg"> </md-icon>
                         Login
-                    </md-button>
+                    </md-button >
                 </md-list-item>
-                <md-list-item>
+                <md-list-item ng-if="!button_log">
                     <md-button class="boton-menu" ui-sref="registro">
-                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
+                        <md-icon md-svg-src="img/icons/person_add-24px.svg"></md-icon>
                         registro
                     </md-button>
                 </md-list-item>
-                <md-list-item>
+                <md-list-item >
                     <md-button class="boton-menu" ui-sref="about">
-                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
+                        <md-icon md-svg-src="img/icons/list-24px.svg"></md-icon>
                         lista
                     </md-button>
                 </md-list-item>
-                <md-list-item>
+                <md-list-item ng-if="button_log">
                     <md-button class="boton-menu" ui-sref="formulario">
-                        <md-icon md-svg-src="img/icons/favorite.svg"></md-icon>
+                        <md-icon md-svg-src="img/icons/add-24px.svg"></md-icon>
                         nuevo contenido
                     </md-button>
                 </md-list-item>
@@ -64,6 +67,8 @@
     <script src="/app.js"></script>
     <script src="controllers/controller.js"></script>
     <script src="services/multipartForm.js"></script>
+    <script src="services/categoriaService.js"></script>
+    <script src="services/toastService.js"></script>
     <script src="directives/fileModel.js"></script>
 </body>
 

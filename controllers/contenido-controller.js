@@ -27,12 +27,28 @@ function categorizar ( contenidos ){
 
 }
 
+function compararFecha (fecha) {
+
+    var date = new Date();
+
+    disponible = false;
+
+    mydate=new Date(fecha);
+
+    if(mydate>date){
+        disponible = true;
+    }
+
+    return disponible;
+
+}
+
 exports.findAll = (req, res) => {
 
     if(!inicio){
         Categoria.findAll({raw: true})
         .then(data => {
-            console.log(data)
+
             misCategorias = data
             inicio = true;
         })
@@ -58,13 +74,18 @@ exports.findAll = (req, res) => {
     
 };
 
-// Crear y guardar un nuevo usuario
+
 
 exports.create = (req, res) => {
 
     
     let {titulo, enlace, contenido, fecha_limite, etiqueta, categoria_id} = req.body;
-    // Validate request
+
+    if (!req.file) {
+            return res.status(400).send({
+                message: "El formato del archivo no corresponde a png o jpeg"
+        });
+    }
     imagen = req.file.filename
     if (!titulo) {
         res.status(400).send({
@@ -92,7 +113,16 @@ exports.findOne = (req, res) => {
   
     Contenido.findByPk(id)
     .then(data => {
-        res.status(200).send(data);
+
+        if(data == null){
+            return res.status(203).send({message: "Contenido no existe"});
+        }
+
+        let {titulo, enlace, contenido, imagen,fecha_limite, etiqueta, categoria_id} = data;
+
+        var disponible = compararFecha(fecha_limite);
+
+        res.status(200).send( {titulo, enlace, contenido, imagen,fecha_limite, etiqueta, categoria_id, disponible});
     })
     .catch(err => {
         res.status(500).send({

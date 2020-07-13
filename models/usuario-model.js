@@ -8,7 +8,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     contrasena: {
         type: Sequelize.TEXT
-    }
+    }},
+    {
+        timestamps: false
     });
   
     return Usuario;

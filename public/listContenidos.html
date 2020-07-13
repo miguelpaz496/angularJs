@@ -5,11 +5,28 @@
                 <div layout="column" layout-align="center center" flex ng-repeat="categoria in categoriasList">
                     <md-tab label="{{categoria.nombre}}">
                         <md-content>
+                            <div layout="row" layout-align="end center" >
+                                <div >
+                                    <span class="material-icons">
+                                        search
+                                    </span>
+                                </div>
+                                <md-input-container flex="30"  class="content-search" >
+
+                                    <input ng-model="busqueda" placeholder="Titulo">
+                                </md-input-container>
+                                <div flex="10">
+
+                                </div>
+
+                            </div>
                             <div ng-if="categoria.numero" >
                                 <div class="md-padding" layout="row" layout-wrap>
-                                    <div flex-xs flex-gt-xs="30" layout="row" ng-repeat="contenido in categoria.contenidos">
+                                    <div flex-xs flex-gt-xs="30" layout="row" ng-repeat="contenido in categoria.contenidos | filter:busqueda">
                                         <md-card ui-sref="detalles({ id: {{contenido.id}} })" class="md-whiteframe-4dp" layout="column"> 
+
                                             <img ng-src="img/{{contenido.imagen}}" class="md-card-image img-contenido" alt="Washed Out">
+
                                             <md-card-title>
                                                 <md-card-title-text>
                                                     <span class="md-headline">{{contenido.titulo}}</span>

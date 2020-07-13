@@ -15,7 +15,7 @@ const fileFilter = function(req, file, cb){
     if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
         cb(null, true)
     }else{
-        cb(new Error("ext mala"), false)
+        cb(null, false)
     }
     
 };

@@ -1,9 +1,23 @@
-
-
 .boton-menu {
     width: 100%;
     text-align: left !important;
+
 }
+
+.img-detalle {
+    max-width: 900px;
+    max-height: 300px;
+}
+
+.boton-form {
+    color: white  !important;
+    font-weight: bold !important;
+	width: 100%;
+	border-radius: 30px;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+
 
 #content {
     padding-left: 40px;
@@ -11,8 +25,76 @@
     padding-top: 5px;
 }
 
+.contenedor-form {
+    margin-top: 35px;
+    background-color: white;
+}
 
-.img-contenido {
-    width: 250px;
-    height: 150px;
-} 
+.contenedor-detalles {
+    background-color: white;
+}
+
+.my-color-toolbar {
+    color: white;
+}
+
+.my-button-toolbar {
+    color: white;
+    background-color:  white ;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.content-search {
+    margin-bottom: 0;
+}
+
+.md-block{
+	margin: 0em 5%;
+}
+
+.user-icon-form {
+    font-size: 100px;
+    color: #00897B;
+}
+
+h2 {
+    text-align: center;
+    color: #6C6C6C;
+}
+
+h4 {
+    text-align: center;
+    color: #6C6C6C;
+}
+
+p {
+    text-align: center;
+
+}
+
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+md-toast.md-error-toast-theme div.md-toast-content{
+    color: white !important;
+    font-weight: bold;
+    background-color: #F44336 !important;
+}
+
+md-toast.md-success-toast-theme div.md-toast-content{
+    color: white !important;
+    font-weight: bold;
+    background-color: #4CAF50 !important;
+}
+
+md-toast.md-info-toast-theme div.md-toast-content{
+    color: white !important;
+    font-weight: bold;
+    background-color: #FF9800 !important;
+}

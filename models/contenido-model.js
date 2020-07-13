@@ -20,8 +20,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     categoria_id: {
         type: Sequelize.INTEGER
-    }
+    }},
+    {
+        timestamps: false
     });
-  
     return Contenido;
 };

@@ -11,5 +11,14 @@ npm install
 npm run serve
 
 
+## Datos prueba
+
+correo: prueba@gmail.com
+
+contraseña: prueba
+
+
+
+
 
 
